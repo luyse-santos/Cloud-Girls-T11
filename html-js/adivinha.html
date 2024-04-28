@@ -1,0 +1,80 @@
+<meta charset="UTF-8">
+
+<input />
+<button>Compare seu número com o meu</button>
+
+<script>
+
+
+    var input = document.querySelector("input"); 
+    input.focus();
+
+
+    function sorteia() {
+
+        return Math.round(Math.random() * 10);
+    }
+
+    function sorteiaNumeros(quantidade) {
+
+        var numero = []; //lista vazia
+        var valor = 1;
+        while (valor <= quantidade){
+
+
+            var numeroAleatorio = sorteia();
+            var achou = false;
+
+            if (numeroAleatorio !== 0){
+                for(var posicao = 0; posicao < numero.length; posicao++){
+
+                    if(numero[posicao] == numeroAleatorio){
+                        achou = true;
+                        break;
+                    }
+                }
+
+                if(achou == false){
+                    numero.push(numeroAleatorio); //Todo array possui a função push que permite "empurrar" elementos para dentro da lista.
+                    valor++;
+
+                }
+            }
+        
+        }
+
+            return  numero;
+    }
+    var numero = sorteiaNumeros(3);
+    console.log(numero); 
+
+
+    
+    function verifica() {
+
+        var achou = false;
+
+        for (var posicao = 0; posicao < numero.length; posicao++) {
+
+            if (input.value == numero[posicao]) {
+
+                alert("Você ACERTOU!");
+                achou = true;
+                break;
+            }
+        }
+        if (achou == false) {
+
+            alert("Você ERROU!");
+
+        }
+
+        input.value = ""; //zera o que está na caixa na tag input
+        input.focus();
+    }
+
+    var button = document.querySelector("button");
+
+    button.onclick = verifica;
+
+</script>
