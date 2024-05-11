@@ -1,6 +1,9 @@
 import os
 # importando uma biblioteca
 
+'''docstring, que é uma ferramenta que você pode inserir dentro das funções para torná-las mais descritivas'''
+#docstring 
+
 restaurantes = [{'nome':'Praça','categoria':'Japonesa', 'ativo':False}, {'nome':'Pizza Superma', 'categoria':'Pizza', 'ativo':True},{'nome':'Cantina', 'categoria':'Italiana','ativo':False}]
 # dicionario , funciona com chave e valor
 
