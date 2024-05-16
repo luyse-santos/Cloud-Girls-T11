@@ -1,16 +1,23 @@
 class Restaurante:
-    nome = ''
-    categoria = ''
-    ativo = False
+    restaurantes = []
 
-restaurante_praca = Restaurante()
-restaurante_praca.nome = 'Praça'
-restaurante_praca.categoria = 'Gourmet'
+    def __init__(self, nome, categoria):
+        self.nome = nome
+        self.categoria = categoria
+        self.ativo = False
+        Restaurante.restaurantes.append(self)
+# criando o próprio metododo
+    
 
-restaurante_pizza = Restaurante()
+    def __str__(self):
+      return f'{self.nome} | {self.categoria}'
+# o metodo __str__ mostra o objeto em formato de texto
 
-restaurantes = [restaurante_praca, restaurante_pizza]
+    def listar_restaurantes():
+         for restaurante in Restaurante.restaurantes:
+             print(f'{restaurante.nome} | {restaurante.categoria} | {restaurante.ativo}')
 
-print(restaurante_praca)
-# a função dir() retorna os atributos do objeto
-# vars(), mostra o dicionário desses atributos e os métodos
+restaurante_praca = Restaurante('praça' , 'Gourmet')
+restaurante_pizza = Restaurante('pizza', 'italiana')
+
+Restaurante.listar_restaurantes()
